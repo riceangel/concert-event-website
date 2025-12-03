@@ -38,6 +38,9 @@
             <li><a href="#about">About the Event</a></li>
             <li><a href="#schedule">Event Schedule</a></li>
             <li><a href="#links">Links</a></li>
+            <li><button id ='theme-button' class="navbar-btn"> <img src="img/space04_moon.png"></img>Dark Mode</button></li>
+            <li><button id ='motion-button' class="navbar-btn"> <img src="img/cat12_moyou_mike.png">Motion ON</button></li>
+
             </ul>
         </div>
 
@@ -65,8 +68,8 @@
 
                 <h2>Anime, Video Game, and Film Music</h2>
                 <div class="header-button-container">
-                    <button type="button">Reserve a FREE ticket</button>
-                    <button type="button">See past performances</button>
+                    <button id="rsvp-btn" type="button" href="#rsvp">Reserve a FREE ticket</button>
+                    <button id="YouTube-btn" type="button">See past performances</button>
                 </div>
             </div>
         </div>
@@ -85,14 +88,13 @@
         - [ ] Any time between / after
         --> 
         <h2 id="about">About the Event</h2>
-        <!-- TO DO: MAKE ADAPTIVE -->
         <div class="about-container">
             <iframe src="https://www.youtube.com/embed/zgoKyOAC-sc?si=McNJfwpRspDzW5Fc" ></iframe>
             <img alt="Orchestra Photo from Fall 2024 Concert" 
                     src="./img/DSC_4924.JPG"/>
         </div>
         
-        <p>The Intermission Orchestra (also known as TIO) is BACK with another concert on December 8th, 2025.
+        <p id="about-caption">The Intermission Orchestra (also known as TIO) is BACK with another concert on December 9th, 2025.
             Bring your friends and family to First Congregational Church at Berkeley for an exciting and FREE 
             night of music from your favorite anime, video games, and movies. Whether you're a 
             student that needs a break from locking in for finals, or you're a pop culture 
@@ -168,8 +170,81 @@
             </div>  
         </div>
 
-        <!-- rsvp [PLACEHOLDER] [ADDED IN UNIT 6] -->
-        <!-- success modal [PLACEHOLDER] [ADDED IN UNIT 9] --> 
+        <!-- rsvp
+
+        Purpose:
+        - Section for users to sign up for the event
+        - Contains a form for users to input their information, 
+        and a list of other users who have signed up
+
+        When To Modify:
+        - [ ] Project 6 (REQUIRED FEATURE) 
+        - [ ] Project 6 (STRETCH FEATURE) 
+        - [ ] Any time after
+        --> 
+        <div id="rsvp">
+            <h2>RSVP</h2>
+            <div class="rsvp-container">
+                <div class="rsvp-para">
+                    Are you ready to get "spirited away" to a world of music and fun? 
+                    Together with your support, we can go "to infinity and beyond"! 
+                    Sign up here to reserve a spot to watch our FREE concert today!  
+
+                </div>
+                <div class="rsvp-participants">
+                    <p>🎼 DJ has reserved 4 seats!</p>
+                    <p>🎼 Amy has reserved 1 seat!</p>
+                    <p>🎼 Teresa has reserved 2 seats!</p>
+                    <p id="rsvp-count">♬ 3 people have RSVP'd to this event!</p>
+                </div>
+            </div>
+
+            <!--- Sign RSVP Form --->
+            <div class="form-container">
+                <form id="rsvp-form" title="rsvp-form">
+                    <!-- form inputs go here -->
+                     <!-- TO DO: Make questions required and add css styling -->
+                     <label for="name">Name:</label>
+                     <input id="name">
+                     <label for="email">Email:</label>
+                     <input id="email">
+                     <label for="ticket-count">Number of Tickets:</label>
+                     <input id="num_tickets" type="number">
+                     
+                </form>
+                <!-- Submit button -->
+                <button id="rsvp-button">Submit RSVP</button>
+            </div>      
+        </div>
+
+
+        <!-- success modal
+
+        Purpose:
+        - Modal that appears when a user successfully signs up for the event
+        - Contains a personalized message and image
+
+        When To Modify:
+        - [ ] Project 9 (REQUIRED FEATURE)
+        - [ ] Project 9 (STRETCH FEATURE) 
+        - [ ] Any time after
+        --> 
+
+        <div id="success-modal" class="modal">
+            <div class="modal-container">
+                <button id="close-modal-btn">✖️</button>
+                <div id="modal-item">
+                     <p id="modal-text">
+                        <b>🎟️ Ticket Acquired! 🎟️ </b>
+                     </p>
+                </div>
+                <div id="modal-item">
+                     <img id="modal-img" src="img/animal_dance.png"> 
+                </div>
+
+            </div>
+        </div>
+        
 
         <!-- links
 
@@ -203,12 +278,19 @@
                 <p>Can't wait to hear us live? Listen to some past performances!</p>
             </article>
         </a>
+        <a class="block" href="https://www.eventbrite.com/e/2025-december-concert-tickets-1970809788129?aff=oddtdtcreator">
+            <article>
+                <h3>RSVP Through Eventbrite</h3>
+                <p>If you'd like to ACTUALLY rsvp (for realsies) for our concert, please do so through our Eventbrite page!</p>
+            </article>
+        </a>
             
-        <!-- footer [PLACEHOLDER] [ADDED IN UNIT 3] -->
+        <!-- footer -->
         <div class="footer">
             <p>&copy; 2025 | Ryssa Malibiran | All Rights Reserved</p>
         </div>
-        <!-- script [PLACEHOLDER] [ADDED IN UNIT 5] -->
+        <!-- script  -->
+        <script src="index.js"></script>
 
     </body>
 </html>

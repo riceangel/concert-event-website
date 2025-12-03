@@ -1,8 +1,7 @@
 /*** VSCodeEDU preview fix ***/
 html {
-    background-image: url(img/winter.jpg);
-    background-size: cover;
-    background-position: center center;
+    background-color: transparent; 
+
 }
 
 /*** body ***
@@ -11,6 +10,10 @@ html {
 ***/
 
 body {
+    background-image: url(img/winter.jpg);
+    background-size: cover;
+    background-position: center center;
+
     background-color: transparent; 
     font-size: 16px;
     color: var(--text-color);
@@ -57,7 +60,7 @@ button {
     border-radius: 10px;         /* curved edges instead of square */
     cursor: pointer;            /* makes the cursor change when over button */
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Tahoma, sans-serif; 
     margin: 0;
 }
 button:hover {
@@ -174,23 +177,21 @@ a:active {
 
 .footer { 
     position: fixed;
-    left: 0;
-    bottom: 0;
+    left: 0px;
+    bottom: 0px;
+    padding: 0px;
     width: 100%;
-    padding-top: 10px;
-    height: 30px;
+    background-color: white;
+    font-size: smaller;
+    color: var(--accent-color-brown-dark);
+    text-align: center;
+    border-radius: 50px 50px 0px 0px;
 
-    width: 100%;
-    margin: 30px;
-    left: 0;
-    bottom: 0;
-    position: fixed;
-    background-color: #124a5b;
+    box-shadow: 0 3px 15px 5px rgba(80, 92, 107, 0.413) ;
 
 }
 .footer p {
   color: var(--accent-color-brown-dark);
-  text-align: center;
 }
 
 /*** Navigation bar (navbar) ***
@@ -229,7 +230,33 @@ a:active {
     text-decoration: dotted;
     text-decoration-line: underline;
     color: var(--accent-color-purple);
+
 }
+
+
+/* Dark Mode / Motion Reduction Buttons */
+.navbar-btn {
+  border-radius: 40px;
+  padding: 7px 4px 7px 4px; 
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 125px;
+  height: 30px;
+  font-weight: normal;
+  
+}
+
+.navbar-btn img {
+  width: 30%;
+  padding: 0px;
+  margin: 0;
+}
+.navbar-btn:hover img {
+  transform: scale(1.2);   /* make image 20% larger on hover */
+}
+
 
 /*** About Section ***
   When To Modify:
@@ -243,10 +270,19 @@ a:active {
   justify-content: space-around; 
   margin: 10px;
   height: 100%;
-  /* TO DO: Make images responsively shrink*/
+  
 }
-.about-container img {
-    max-height: 300px;
+#about-caption {
+  text-align: center;
+}
+
+.about-container img, .about-container iframe {
+    gap: 10px; 
+    width: 45%; 
+    aspect-ratio: 16 / 9;   /* or whatever aspect ratio you want */
+    height: auto;
+    object-fit: cover;      /* ensures both crop the same way */
+    border: none;           /* removes iframe border */
 
 }
 
@@ -333,10 +369,216 @@ a:active {
 ***/
 
 
-/*** RSVP [PLACEHOLDER] [ADDED IN UNIT 6] ***/
+/*** RSVP Section ***
+  
+  Purpose:
+  - Add style rules for your website's RSVP form
+
+  When To Modify:
+  - [ ] Project 6 (REQUIRED FEATURE)
+  - [ ] Project 7 (REQUIRED FEATURE)
+  - [ ] Any time after
+***/
+
+.rsvp-container {
+  display: flex; 
+  flex-direction: row; 
+  gap: 20px;
+  width: 100%;
+  padding-bottom: 50px; 
+  
+}
+#rsvp-form {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+.rsvp-para { 
+  width: 55%;
+  padding-right: 10px;
+}
+.rsvp-participants {
+  width: 45%; 
+  padding-right: 10px;
+
+}
+/* Add other rsvp-related selectors here */
+.form-container {
+  /* button?? */
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  width: 100%; 
+  
+
+}
+label {
+  margin-right: 5px;
+}
+input {
+  border-radius: 30pt;
+  margin-right: 15pt;
+}
+.error {
+  border-style: solid;
+  border-width: 2px;
+
+  /* Set border-color and background */
+  border-color: var(--error-color-border); 
+  background-color: var(--error-color);
+}
+
 /*** Animations [PLACEHOLDER] [ADDED IN UNIT 8] ***/
-/*** Success Modal [PLACEHOLDER] [ADDED IN UNIT 9] ***/
-/*** Dark Mode [PLACEHOLDER] [ADDED IN UNIT 5] ***/
+
+/*** Success Modal  ***
+  
+  Purpose:
+  - Add style rules to your website's pop-up modal, which appears
+    when a user successfully submits the RSVP form
+
+  When To Modify:
+  - [ ] Project 9 (REQUIRED FEATURE)
+  - [ ] Any time after
+***/
+
+.modal {
+  display: none;   /* modal should be hidden by default*/
+  position: fixed; /* modal cannot move around the screen */
+  z-index: 2;      /* modal appears above other elements */ 
+  
+  /* TODO: Make the modal fill the entire screen */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Add a semi-transparent background to shadow non-modal elements*/
+  background-color: rgba(0,0,0,0.4); /* 40% opacity black */
+
+  /* Flexbox settings for modal */
+  /* These won't apply until we update "display:" from "hidden" to "flex" in our JS */
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container {
+    /* Change modal size and spacing here */
+    padding: 50px;
+    width: 55%;
+
+    /* Customize modal style here */
+    background-color: lightsteelblue;
+    color: black;
+    text-align: center;
+    font-size: 1rem;
+    font-family: Tahoma, sans-serif; 
+    
+    border-radius: 30px;
+
+    /* Optional: Use flexbox to customize .modal-item layout */
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+}
+#modal-img { 
+  width: 100%;
+  padding: 10px;
+  margin-left: 10px;
+}
+#close-modal-btn {
+  position: absolute;
+  top: 20px;
+  right: 45px;  /* Top-right corner */
+  width: 0%;
+  padding: 0px;
+  margin: 0px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+#close-modal-btn:hover {
+  box-shadow: none;
+  
+}
+
+.modal-item {
+    /* Optional: Style individual elements within the modal */
+    
+}
+
+
+/*** Dark Mode ***/
+/* Default dark mode style */
+.dark-mode {
+    background-blend-mode: multiply;
+    background-color: #022b3bda;
+    color: var(--text-color-dark-mode);
+}
+
+
+/* Example: Different dark mode style for h1 */
+.dark-mode h1 {
+    
+}
+
+.dark-mode h2 {
+  text-shadow: 3px 3px 1px var(--accent-color-medium);
+}
+.dark-mode .header-item:nth-of-type(2) h2{
+  /* anime video games */
+    color: white;
+    text-shadow: 0px 0px;
+}
+
+.dark-mode p {
+  color: var(--text-color-dark-mode)
+}
+
+/* Example: Different dark mode style for visited links */
+.dark-mode a:visited * {
+
+}
+.dark-mode a {
+  color: var(--accent-color-medium);
+}
+.dark-mode .block p {
+   color: rgb(185, 189, 199);
+}
+
+.dark-mode a:hover {
+  color: var(--accent-color-purple-dark-mode);
+}
+
+/* Dark mode navbar */ 
+.dark-mode .navbar ul {
+  background-color: rgba(7, 42, 53, 0.975);
+}
+.dark-mode .navbar ul li a {
+    color: var(--text-color-dark-mod);
+}
+
+.dark-mode .navbar ul li a:hover {
+    color: var(--accent-color-purple-dark-mode);
+}
+
+.dark-mode .navbar-btn {
+  background-color: var(--bg-color);
+}
+.dark-mode .navbar-btn:hover {
+  background-color: var(--accent-color-purple-dark-mode);
+  box-shadow: 0px 0px 5px 2px var(--accent-color-light);
+
+}
+
+/* Dark mode footer */
+.dark-mode .footer {
+  background-color: var(--accent-color-darkest);
+}
+.dark-mode .footer p {
+  color: rgb(155, 138, 108);
+}
 
 /*** Custom Colors (OPTIONAL) ***
   - To reference a color variable in your css, use var(--variable-name) in place of a color value
@@ -349,7 +591,9 @@ a:active {
 
     /* Dark Mode */
     --bg-color-dark-mode: #022b3b;
-    --text-color-dark-mode: #fff;
+    
+    --text-color-dark-mode: #bcccdc ;
+    --accent-color-purple-dark-mode: #9b70cf;
 
     /* Accent Colors */
     --accent-color-light: #b5cad4dc;
