@@ -1,6 +1,9 @@
 # concert-event-website
 Code for my project for *Codepath's WEB101: Introduction to Web Development* course!
 
+## View the Project HERE! 
+https://riceangel.github.io/concert-event-website/ 
+
 ## Project Overview
 Students are tasked with creating a website for an event. My website advertises the Intermission Orchestra at UC Berkeley's December 2025 concert and features a responsive layout using HTML and CSS. 
 
